@@ -1,0 +1,28 @@
+WHITESPACE = _{ PATTERN_WHITE_SPACE }
+
+line = { SOI ~ ( binding | expression ) ~ EOI }
+
+binding = { "let" ~ identifier ~ "=" ~ expression }
+
+expression = { prefix_op* ~ primary ~ ( infix_op ~ prefix_op* ~ primary )*}
+
+prefix_op = _{ neg }
+
+infix_op = _{ plus | minus | times | divide | modulo | power }
+
+primary = _{ conversion | "(" ~ expression ~ ")" | number | identifier }
+
+conversion = { "to_float(" ~ expression ~ ")" }
+
+identifier = @{ XID_START ~ (XID_CONTINUE)* }
+
+number = @{ ASCII_DIGIT ~ ( ASCII_DIGIT | "_" )* ~ ( "." ~ ( ASCII_DIGIT | "_" )* )? }
+
+neg = { "-" }
+
+plus = { "+" }
+minus = { "-" }
+times = { "*" }
+divide = { "/" }
+modulo = { "%" }
+power = { "^" }
