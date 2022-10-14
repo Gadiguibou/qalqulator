@@ -2,6 +2,14 @@
 name = "qalqulator"
 version = "0.1.0"
 edition = "2021"
+license = "AGPL-3.0-or-later"
+description = "A calculator that uses (and outputs) rational numbers wherever possible."
+documentation = "https://docs.rs/qalqulator"
+repository = "https://github.com/Gadiguibou/qalqulator/"
+readme = "README.md"
+keywords = ["calculator", "command-line", "arbitrary-precision", "rational-numbers"]
+categories = ["command-line-utilities", "mathematics"]
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

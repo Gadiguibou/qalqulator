@@ -4,6 +4,21 @@ A calculator that uses (and outputs) rational numbers wherever possible.
 
 The only operation that causes the output to revert to a floating point is exponentiation with fractional exponents.
 
+## Installation
+
+### Using Cargo
+
+1. Install [Rust](https://www.rust-lang.org/tools/install).
+2. Run the following command in your terminal:
+
+   ```bash
+   cargo install qalqulator
+   ```
+
+### Using pre-built binaries
+
+Pre-built binaries are available on the [releases page](https://github.com/Gadiguibou/qalqulator/releases/).
+
 ## Example usage
 
 ```bash

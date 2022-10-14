@@ -1,8 +1,5 @@
 use directories::BaseDirs;
-use pest::Parser as PestParser;
-use qalqulator::ast::Ast;
-use qalqulator::eval::{eval, Env, Number};
-use qalqulator::parser::{Parser, Rule};
+use qalqulator::run;
 use rustyline::error::ReadlineError;
 use rustyline::Config;
 use std::collections::HashMap;
@@ -50,10 +47,4 @@ fn main() -> anyhow::Result<()> {
     }
 
     Ok(())
-}
-
-fn run(line: &str, env: &mut Env) -> anyhow::Result<Number> {
-    let parse = Parser::parse(Rule::line, line)?;
-    let ast = Ast::from_line(parse);
-    eval(ast, env)
 }

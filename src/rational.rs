@@ -1,4 +1,4 @@
-#[derive(Copy, Clone, PartialEq, Eq, Hash)]
+#[derive(Copy, Clone, PartialEq, Eq, Hash, Debug)]
 pub struct Rational {
     numerator: i128,
     denominator: i128,
@@ -36,6 +36,12 @@ impl Rational {
 
     pub fn to_f64(self) -> f64 {
         self.numerator as f64 / self.denominator as f64
+    }
+}
+
+impl From<Rational> for f64 {
+    fn from(rational: Rational) -> f64 {
+        rational.to_f64()
     }
 }
 
