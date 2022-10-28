@@ -25,6 +25,8 @@ Pre-built binaries are available on the [releases page](https://github.com/Gadig
 $ qalqulator
 >>> 6 * 7
 42
+>>> 6(7)
+42
 >>> (12/11)^(4/2)
 144/121
 >>> let x = 141 % 100
@@ -43,7 +45,7 @@ $ qalqulator
 - Supports all basic arithmetic operations with operator precedence and parentheses:
   - Addition: `+`
   - Subtraction (and negation): `-`
-  - Multiplication: `*`
+  - Multiplication: `*` (or juxtaposition of operands)
   - Division: `/`
   - Remainder (not modulus): `%`
   - Exponentiation: `^`

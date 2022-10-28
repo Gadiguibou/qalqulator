@@ -74,7 +74,12 @@ impl Node {
         thread_local! {
             static PRATT_PARSER: PrattParser<Rule> = PrattParser::new()
                 .op(Op::infix(Rule::plus, Assoc::Left) | Op::infix(Rule::minus, Assoc::Left))
-                .op(Op::infix(Rule::times, Assoc::Left) | Op::infix(Rule::divide, Assoc::Left) | Op::infix(Rule::modulo, Assoc::Left))
+                .op(
+                      Op::infix(Rule::times, Assoc::Left)
+                    | Op::infix(Rule::implicit_times, Assoc::Left)
+                    | Op::infix(Rule::divide, Assoc::Left)
+                    | Op::infix(Rule::modulo, Assoc::Left)
+                )
                 .op(Op::infix(Rule::power, Assoc::Right))
                 .op(Op::prefix(Rule::neg));
         }
@@ -105,6 +110,7 @@ impl Node {
                         Rule::divide => BinaryOp::Div,
                         Rule::modulo => BinaryOp::Modulo,
                         Rule::power => BinaryOp::Power,
+                        Rule::implicit_times => BinaryOp::Mul,
                         _ => unreachable!(),
                     };
 
